@@ -1,0 +1,9 @@
+*.pyc
+*/__pycache__/*
+
+.env
+app.log
+
+# Ignore IDE or editor-specific files
+.idea/
+.vscode/
