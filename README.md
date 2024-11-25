@@ -95,7 +95,7 @@ The WebSocket route allows users to connect to the chat service and send/receive
 -   Messages are saved in the database and broadcasted to all connected users.
 
 
-### URL: `/ws/chat/{user_id}/{receiver_username}`
+#### URL: `/ws/chat/{user_id}/{receiver_username}`
 
 -   **Parameters**:
     -   `user_id`: The ID of the sender user.
