@@ -82,9 +82,10 @@ WebSocket Endpoints
 
 The WebSocket route allows users to connect to the chat service and send/receive messages in real-time.
 
-#### URL: `/ws/chat/{username}`
+#### URL: `/ws/group/{group_name}/{username}`
 
 -   **Parameters**:
+    -   `group_name`: The name of the chat group.
     -   `username`: The unique identifier for each user.
 
 #### Features:
@@ -112,14 +113,23 @@ The FastAPI application provides the following endpoints:
 
 -   **Description**: Retrieve information about a specific user.
 
+#### URL: `/api/v1/groups/`
+
+-   **Method**: `POST`
+
+-   **Description**: Create a new group. There are 2 types private and public. Private means only 2 users in that group and Public means any number of users.
+
+#### URL: `/api/v1/groups/`
+
+-   **Method**: `GET`
+
+-   **Description**: Retrieve a list of all groups.
+
 #### URL: `/api/v1/messages/`
 
 -   **Method**: `GET`
 
+-   **Query Params(optional)**: skip, limit, group_id, user_id
+
 -   **Description**: Retrieve a list of all messages.
 
-#### URL: `/api/messages/`
-
--   **Method**: `POST`
-
--   **Description**: Create a new message.
