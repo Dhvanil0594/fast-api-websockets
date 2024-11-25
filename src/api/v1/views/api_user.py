@@ -4,7 +4,8 @@ from src.api.v1.schemas.user_schemas import UserCreate, UserResponse
 from src.api.v1.models.user_models.user import User
 from src.api.v1.repositories.user_repository import create_user, get_user_by_email, get_user_by_id
 from src.api.v1.services.auth_service import hash_password
-from database.database import get_db
+# from database.database import get_db
+from database.unit_of_work import get_db
 from logger import logger
 
 router = APIRouter()

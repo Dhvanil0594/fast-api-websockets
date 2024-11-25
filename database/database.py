@@ -7,10 +7,3 @@ MASTER_DB_URL = f"postgresql+psycopg2://{settings.MASTER_DB_USER}:{settings.MAST
 engine = create_engine(MASTER_DB_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()

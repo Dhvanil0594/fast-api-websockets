@@ -9,7 +9,8 @@ from src.api.v1.models.user_models.user import User
 from src.api.v1.models.message_models.message import Message
 from fastapi import Depends
 from sqlalchemy.orm import Session
-from database.database import get_db
+# from database.database import get_db
+from database.unit_of_work import get_db
 router = APIRouter()
 
 # WebSocket route

@@ -2,7 +2,8 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from src.api.v1.schemas.group_schemas import GroupCreate, GroupResponse
 from src.api.v1.repositories.group_repository import create_group, get_all_groups
-from database.database import get_db
+# from database.database import get_db
+from database.unit_of_work import get_db
 
 router = APIRouter()
 
