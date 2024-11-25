@@ -9,4 +9,4 @@ class Group(Base):
     name = Column(String, unique=True)
     is_private = Column(Boolean, default=False)  # Now using Boolean for private/public
 
-    members = relationship("GroupMembership", back_populates="group")
+    members = relationship("GroupMembership", backref="group")

@@ -94,6 +94,21 @@ The WebSocket route allows users to connect to the chat service and send/receive
 -   If the user does not exist in the database, the WebSocket connection will be closed.
 -   Messages are saved in the database and broadcasted to all connected users.
 
+
+### URL: `/ws/chat/{user_id}/{receiver_username}`
+
+-   **Parameters**:
+    -   `user_id`: The ID of the sender user.
+    -   `receiver_username`: The username of the receiver user.
+
+#### Features:
+
+-   Upon successful connection, the user will be able to send and receive messages in real-time privately with other user.
+-   If the group doesn't exists between user and receiver user then the group will be created with random name.
+-   If the user does not exist in the database, the WebSocket connection will be closed.
+-   Messages are saved in the database and broadcasted to all connected users.
+-   This will remove the dependency to create the group for private chat between two users.
+
 API Endpoints
 -------------
 

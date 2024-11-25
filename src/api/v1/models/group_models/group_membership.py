@@ -10,4 +10,4 @@ class GroupMembership(Base):
     group_id = Column(Integer, ForeignKey("groups.id"))
 
     user = relationship("User", backref="group_memberships")
-    group = relationship("Group", back_populates="members")
+    # group = relationship("Group", back_populates="members")
