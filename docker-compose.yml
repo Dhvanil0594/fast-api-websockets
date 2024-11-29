@@ -30,7 +30,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: mydb
     ports:
-      - "5432:  "
+      - "5432:5432"
     networks:
       - app-network
     healthcheck:
@@ -42,3 +42,4 @@ services:
 
 networks:
   app-network:
+    driver: bridge
