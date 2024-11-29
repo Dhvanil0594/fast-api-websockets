@@ -1,0 +1,44 @@
+version: '3.9'
+services:
+  fastapi:
+    image: fastapi-app
+    container_name: fastapi-container
+    environment:
+      - DEBUG=True
+      - PROFILING_ENABLED=False
+      - MASTER_DB_USER=postgres
+      - MASTER_DB_PASSWORD=postgres
+      - MASTER_DB_HOSTNAME=postgres-fastapi
+      - MASTER_DB_PORT=5432
+      - MASTER_DB_NAME=mydb
+      - JWT_SECRET_KEY=f44d30bb2b93e179d461ae598c10204f682847747b3f74223b569f41cf8d929b
+      - ACCESS_TOKEN_EXPIRE_MINUTES=500
+      - ALGORITHM=HS256
+      - PORT=8001
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15
+    container_name: postgres-fastapi
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      retries: 5
+      start_period: 10s
+      timeout: 5s
+
+networks:
+  app-network:
